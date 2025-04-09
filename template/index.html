@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ポケモンWordle</title>
+    <!-- Bootstrap CSSを追加 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background-color: antiquewhite;">
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-5">ポケモンWordle!</h2>
+        <form method="post" class="row g-3">
+            <div class="col-auto">
+                <label for="user_input" class="form-label">ユーザー入力:</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="user_input" name="user_input" value="{{ user_input }}" class="form-control">
+            </div>
+            <div class="col-auto">
+                <input type="submit" value="送信" class="btn btn-primary">
+            </div>
+            <div class="col-auto">
+                <input type="submit" name="vsai" value="AI対戦送信" class="btn btn-primary">
+            </div>
+            <div class="w-100"></div>
+            <div class="col-auto">
+                <input type="submit" name="helps" value="遊び方" class="btn btn-info">
+            </div>
+            <div class="col-auto">
+                <input type="submit" name="hint" value="ヒント" class="btn btn-secondary">
+            </div>
+            <div class="col-auto">
+                <input type="submit" name="answer" value="正解表示" class="btn btn-warning">
+            </div>
+            <div class="col-auto">
+                <input type="submit" name="reset" value="リセット" class="btn btn-danger">
+            </div>
+            <div class="col-auto">
+                <select name="options1" class="form-select">
+                    {% for option in options1 %}
+                    <option value="{{ option }}" {{ 'selected' if option == selected_option1 else '' }}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-auto">
+                <select name="options2" class="form-select">
+                    {% for option in options2 %}
+                    <option value="{{ option }}" {{ 'selected' if option == selected_option2 else '' }}>{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-auto form-check mb-4"> <!-- mb-4を追加してマージンを設定 -->
+                <input type="checkbox" name="debug" {{ 'checked' if debug else '' }} class="form-check-input" id="debug">
+                <label class="form-check-label" for="debug">デバッグモード</label>
+            </div>
+            <hr>
+                <input type="hidden" name="current_message" value="{{ message }}">
+        </form>
+        <p>{{ message | safe}}</p>
+    </div>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

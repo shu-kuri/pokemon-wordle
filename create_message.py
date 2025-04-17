@@ -2,7 +2,7 @@ import random
 import csv
 import re
 
-with open("/home/ubuntu/wordle/wordle_app/pokemon_list.csv", "r", encoding="utf-8") as f:
+with open("pokemon_list.csv", "r", encoding="utf-8") as f:
         r = csv.reader(f)
         pokemons_list = [row for row in r]
 num = 0

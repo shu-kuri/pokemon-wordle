@@ -59,7 +59,8 @@ def vs(user_input):
         
 # 遊び方メッセージを返す関数（未実装）
 def helps():
-    message = "test"      return message
+    message = "test"
+    return message
 
 # 正解を表示する関数（未実装）
 def answer():
